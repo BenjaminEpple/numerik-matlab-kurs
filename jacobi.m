@@ -5,13 +5,17 @@ format short;
 
 % create A, a trilinear matrix
 n = 5;
+
+% Vektoren für das Befüllen der Tridiagonalmatrix
 v = 10 * ones(n, 1);
 uo = -1 * ones(n - 1, 1);
 uu = 2 * ones(n - 1, 1);
+
 D = diag(v, 0);
-Do = diag(uo, 1);
-Du = diag(uu, -1);
-A = D + Do + Du;
+D_oben = diag(uo, 1);
+D_unten = diag(uu, -1);
+
+A = D + D_oben + D_unten;
 
 % Rechte Seite 
 b = ones(n, 1);
